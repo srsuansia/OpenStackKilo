@@ -39,6 +39,15 @@ yum -y install openvswitch
 
 echo "Configure openswitch .."
 systemctl enable openvswitch.service
+systemctl start openvswitch.service
+
+echo "Create openvswitch bridge .."
+ovs-vsctl add-br br-int
+ovs-vsctl add-br br-ex
+
+echo "Verifying bridge creation .."
+ovs-vsctl show
+
 
 
         
